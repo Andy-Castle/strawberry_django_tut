@@ -94,3 +94,21 @@ pip install pytest pytest-django
 
 python -m pytest
 ```
+
+##### Esto es de los anteriores UPDATE y DELETE
+
+```
+mutation UPDATE_BOOK {
+  updateBook(bookId:1, data: {
+    title: "My Biography"
+  }){
+    id
+    title
+  }
+}
+
+mutation DELETE_BOOK {
+  deleteBook(bookId: 1)
+}
+
+```

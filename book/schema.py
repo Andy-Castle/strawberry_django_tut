@@ -47,6 +47,34 @@ DeleteResponse = Annotated[
     strawberry.union("DeleteResponse")
 ]
 
+"""
+@strawberry.mutation
+def update_book(self, book_id: int, data: BookUpdateInput) -> BookType:
+    try:
+        book = Book.objects.get(id=book_id)
+        for key, value in asdict(data).items():
+            if value is not None:
+                setattr(book, key, value)
+
+        book.save()
+
+        return book
+    except Book.DoesNotExist:
+        raise Exception("Not Found")
+"""
+
+"""
+@strawberry.mutation
+def delete_book(self, book_id: int) -> bool:
+    try:
+        book = Book.objects.get(pk=book_id)
+        book.delete()
+
+        return True
+    except Book.DoesNotExist:
+        raise Exception("Not Found")
+
+"""
 
 @strawberry.type
 class Mutation:
